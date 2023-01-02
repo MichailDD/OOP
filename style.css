@@ -1,0 +1,22 @@
+body {
+    font-family: "Rubik Vinyl";
+    background-color: #6d2cde;
+}
+.container{
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   margin-top: 150px;
+}
+.blok{
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    border-radius: 15px;
+    align-items: center;
+    background-color: #27508ab7;
+    width: 450px;
+}
+.blok__title{
+    
+}
