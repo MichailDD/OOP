@@ -87,40 +87,40 @@ const cars = [
     {name:'Mercedes', year:2019,type: "Jeep",engine:'petrol'},
     {name:'BMW', year:2018,type: "Hatchback",engine:'diesel'},
 ]
-function sortCars(event) {
+function sortCars(event)                                                                                                 {
     return (a, b) => a[event] > b[event] ? 1 : -1;
   }
-let yearCar  = cars.sort(sortCars('engine'))
+let filterCar  = cars.sort(sortCars(''))
 
-console.log(yearCar)
+console.log(filterCar)
 
 
-class Animal{
-    constructor(name){
-        this.name=name
-    }
-    run(){}
-}
+// class Animal{
+//     constructor(name){
+//         this.name=name
+//     }
+//     run(){}
+// }
 
-class Turtle extends Animal{
-    constructor(name){
-        super(name)
-    }
-    run(){
-        console.log(`Turtle runs slowly`)
-    }
-}
- class Cheetah extends Animal{
-    constructor(name){
-        super(name)
-    }
-    run(){
-        console.log(`Cheetah runs fast`)
-    }
- }
+// class Turtle extends Animal{
+//     constructor(name){
+//         super(name)
+//     }
+//     run(){
+//         console.log(`Turtle runs slowly`)
+//     }
+// }
+//  class Cheetah extends Animal{
+//     constructor(name){
+//         super(name)
+//     }
+//     run(){
+//         console.log(`Cheetah runs fast`)
+//     }
+//  }
 
- const turtle = new Turtle("Donatello")
- turtle.run()
- const cheetah = new Cheetah("Cheetos")
- cheetah.run()
+//  const turtle = new Turtle("Donatello")
+//  turtle.run()
+//  const cheetah = new Cheetah("Cheetos")
+//  cheetah.run()
  
