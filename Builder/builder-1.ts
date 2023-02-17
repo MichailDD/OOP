@@ -41,9 +41,17 @@ class CoffeBuilder implements ICoffe{
     this.syrop= syrop
     return this
    }
-   buildCoffe():CoffeBuilder{
+   buildCoffe(){
     return new CoffeBuilder()
    }
 
 }
-const coffe = new CoffeBuilder().addDoubleEspresso(true).addWater(true)
+const coffe_1 = new CoffeBuilder()
+const coffe_2 = new CoffeBuilder()
+const coffe_3 = new CoffeBuilder()
+coffe_1.addEspresso(true).addDoubleEspresso(true).addWater(true)
+coffe_2.addCream(true).addDoubleEspresso(true).addWater(true)
+coffe_3.addMilk(true).addSyrop(true).addDoubleEspresso(true)
+console.log(coffe_1)
+console.log(coffe_2)
+console.log(coffe_3)

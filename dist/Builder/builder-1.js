@@ -27,5 +27,8 @@ class CoffeBuilder {
         return new CoffeBuilder();
     }
 }
-const coffe = new CoffeBuilder().addCream(true).addWater(true);
+const coffe_1 = new CoffeBuilder();
+coffe_1.addEspresso(true).addDoubleEspresso(true).addWater(true);
+console.log(coffe_1);
+const coffe_2 = new CoffeBuilder();
 //# sourceMappingURL=builder-1.js.map
