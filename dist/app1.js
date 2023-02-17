@@ -1,4 +1,3 @@
-"use strict";
 // // class Apple {
 // //     sort:string
 // //     constructor(sort:string){
@@ -23,3 +22,4 @@ class Duck2 {
         console.log(`niu`);
     }
 }
+//# sourceMappingURL=app1.js.map

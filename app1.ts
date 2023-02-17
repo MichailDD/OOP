@@ -1,178 +1,171 @@
-// ////////Наследование в Type Script
+// // class Apple {
+// //     sort:string
+// //     constructor(sort:string){
+// //         this.sort=sort
+// //     }
+// // }
+// // class Apple2  extends Apple{
+// //     public color:string
+// //     constructor(sort:string,color:string){
+// //         super(sort)
+// //         this.color=color
+       
+// //     }
+// // }
+// // class Apple3 extends Apple2{
+// //     public size:number
+// //     constructor(size,sort,color){
+// //         super(sort,color)
+// //         this.size =size
+// //     }
+// // }
 
-// class Operator {
-//     constructor(
-//         public name : string,
-//         public surname:string,
-//         public salary: number
-//     ){}
-//     getFullInfo(){
-//         console.log(`Name: ${this.name}, Surname: ${this.surname}, Salary${this.salary}`)
-//     }
+
+
+
+
+// interface IApple{
+//     sort:string,
+//     color:string
+//     getJuice:()=>string
+//     id:number
 // }
 
-
-// class SuperOperator extends Operator{
-//     constructor(
-//         public name : string,
-//         public surname:string,
-//         public salary: number
-//     ){
-//         super(name,surname,salary)////для вызова конструктора родительского класса
+// class Apple implements IApple   {
+//     public sort:string
+//     public color:string
+//     private _id:number
+//     constructor(sort:string,color:string,id:number){
+//         this.color=color,
+//         this.sort = sort
+//         this._id=id
 //     }
-// }
-// const operator: object = new SuperOperator("Olga","Kolobok ",34)
-
-
-
-// /////////////// Инкапсуляция  в Type Script
-
-// // public
-// //private
-// //protected
-// class DataBase {
-//     public port :number
-//     private url :string
-//     constructor(
+//     getJuice():string{
+//        return this.color+this.sort
+//     }
+//     get id(){
+//         return this._id
+//     }
+//     set id(value){
+//         this._id=value
+//     }
     
-//     ){
-//         this.port = 5060
-//         this.url = 'https://oop.com'
-//     }
 // }
 
+// const apple = new Apple('red','fuji',5)
+// apple.getJuice()
+// apple.id=5
 
-// /////Полиморфизм = одно действие несколько реализаций
 
-// class Animal {
-//     constructor(
-//         public name :string
-//     ){ }
-//     run(){
-//     }
+// interface IPreson{
+//     name:string,
+//     getInfo:()=>string
 // }
 
-// class Doп extends Animal{
-//     constructor(
-//         public name :string
-//     ){
-//         super(name)
+// class Person implements IPreson{
+//     public name:string
+//     constructor(name:string){
+//         this.name=name
 //     }
-//     run(): void {
-//         console.log("Бег")
-//     }
-// const str :string = 'Hello'
- 
-// interface Rect {
-//     readonly name:string,
-//     size:{
-//         widt:number,
-//         height:number
-//     }
-//     color?:string;
-// }
-// const rect1 :Rect = {
-//     name:'rectangle',
-//     size:{
-//         widt:25,
-//         height:25
+//     getInfo(){
+//         return `Привет я человек и меня зовут ${this.name}`
 //     }
 // }
-// rect1.color = "tomato"
+// class Men extends Person{
+//     getInfo() {
+//         let messege 
+//         return  messege
 
-// interface Circle extends Rect {
-//     border:string
-//     getArea: () => number
-// }   
-
-// const circle : Circle= {
-//     name:"circle",
-//     border:'5px',
-//     size:{
-//         widt:20,
-//         height:20
-//     },
-//     getArea(): number{
-//         return this.size.widt * this.size.height
 //     }
+// }
+// const men:Men = new Men ('Mike')
+// const person:Person = new Person('Oleg')
+
+
+
+// interface IApple{
+//     color:string
+//     getJuice:()=> string
+// }
+
+// class Apple implements IApple{
+//    public color: string
+//     constructor(color:string){
+//         this.color=color
+//     }
+//     getJuice():string{
+//         return `Color juice ${this.color}`
+//     }
+// }
+// const apple1: Apple = new Apple('red')
+// apple1.getJuice()
+
+// function addApple(apple1:Apple,apple2:Apple):Apple{
+//     const apple3 = new Apple('green')
+//     return apple3
 // }
 
 
 
-
-
-
-
-
-// interface Car {
-//     readonly name:string,
-//     enjine:string,
-//     year:number,
-//     color?:string,
-//     fullInfo: () => void
-// }
-
-// class BMW implements Car{
-//     name: "BMW";
-//     enjine:"Diesel";
-//     year:2020;
-//     fullInfo():void{
-//         console.log(this.enjine,this.name, this.year)
+// class Potato{
+//     public sort:string
+//     private _id:number
+//     constructor(sort:string){
+//         this.sort = sort
+       
+//     }
+//     get id(){
+//     return this._id
+//     }
+//     set id(value){
+//         this._id=value
 //     }
 // }
-// const mazda : Car={
-//     name: "Mazda",
-//     enjine:"Diesel",
-//     year:2020,
-//     fullInfo():void{
-//         console.log(this.enjine,this.name, this.year)
-//     }
-// }
-// console.log(mazda)
-// mazda.fullInfo()
-////////////////////////////////////////////29.12
-// type C = {name:string, year:number,type:string,engine:string}
 
-// let car : [object:C,object:C,object:C,object:C,object:C,] = [
-//     {name:'Toyota', year:2020,type: "Sedan",engine:'diesel'},
-//     {name:'Mazda', year:2022,type: "Hatchback",engine:'petrol'},
-//     {name:'Nissan', year:2021,type: "Sedan", engine:'diesel'},
-//     {name:'Mercedes', year:2019,type: "Jeep",engine:'petrol'},
-//     {name:'BMW', year:2018,type: "Hatchback",engine:'diesel'},
-// ]
 
-// function sortCar (event:string){
-//   return (a:C,b:C) => a[event] >b[event]  ? 1 : -1;
+// const app = new Potato('')
+
+
+// interface User{
+//     name:string
+//     surname:string
+//     city:string
 // }
 
-// let cars = car.sort(sortCar('name'))
-
-// ///////////////Polymorphism
-
-// class Animal{
-//     constructor(
-//         public name:string
-//     ){}
-//     run():void{}
+// const user:User={
+//     name:'Mike',
+//     surname:"Derevyanko",
+//     city:'Odessa'
 // }
 
-// class Turtle extends Animal{
-//     constructor(
-//         public name:string
-//     ){
-//         super(name)
-//     }
-//     run(): void {
-//         console.log(`Turtle runs slowly`)
-//     }
+// function getInfo(userEntity:User):string{
+
+//     return (`${userEntity.surname} ${userEntity.name} ${user.city}`)
 // }
-// class Cheetah extends Animal{
-//     constructor(
-//         public name:string
-//     ){
-//         super(name)
-//     }
-//     run(): void {
-//         console.log(`Cheetah runs fast`)
-//     }
-// }
+// getInfo(user)
+// console.log(getInfo(user))
+
+
+
+
+interface Fly{
+    fly:()=>void
+}
+
+interface Qua{
+    qua:()=>void
+}
+class Duck1 implements Fly, Qua{
+    fly(){
+        console.log(`fffff`)
+    }
+    qua(){
+        console.log(`rreee`)
+    }
+    
+}
+class Duck2 implements Fly{
+    fly():void{
+        console.log(`niu`)
+    }
+}

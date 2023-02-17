@@ -1,6 +1,6 @@
 body {
     font-family: "Rubik Vinyl";
-    background-color: #6d2cde;
+    background-color: #cab2f3;
 }
 .container{
    display: flex;
@@ -16,7 +16,4 @@ body {
     align-items: center;
     background-color: #27508ab7;
     width: 450px;
-}
-.blok__title{
-    
 }

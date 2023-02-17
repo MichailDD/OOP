@@ -8,7 +8,7 @@
 //     produce(){
 //         return new BMW(this.model,this.price,this.color,this.maxSpeed)
 //     }
-// }
+// }                                                                                                    
 
 // const prototypeBMW = new BMW('X-5',90000,'White',330)
 // const bmw1 = prototypeBMW.produce()

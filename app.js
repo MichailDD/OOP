@@ -80,19 +80,19 @@
 //////////////////////////////////////////////////////
 ////29.12
 
-const cars = [
-    {name:'Toyota', year:2020,type: "Sedan",engine:'diesel'},
-    {name:'Mazda', year:2022,type: "Hatchback",engine:'petrol'},
-    {name:'Nissan', year:2021,type: "Sedan", engine:'diesel'},
-    {name:'Mercedes', year:2019,type: "Jeep",engine:'petrol'},
-    {name:'BMW', year:2018,type: "Hatchback",engine:'diesel'},
-]
-function sortCars(event)                                                                                                 {
-    return (a, b) => a[event] > b[event] ? 1 : -1;
-  }
-let filterCar  = cars.sort(sortCars(''))
+// const cars = [
+//     {name:'Toyota', year:2020,type: "Sedan",engine:'diesel'},
+//     {name:'Mazda', year:2022,type: "Hatchback",engine:'petrol'},
+//     {name:'Nissan', year:2021,type: "Sedan", engine:'diesel'},
+//     {name:'Mercedes', year:2019,type: "Jeep",engine:'petrol'},
+//     {name:'BMW', year:2018,type: "Hatchback",engine:'diesel'},
+// ]
+// function sortCars(event)                                                                                                 {
+//     return (a, b) => a[event] > b[event] ? 1 : -1;
+//   }
+// let filterCar  = cars.sort(sortCars('year'))
 
-console.log(filterCar)
+// console.log(filterCar)
 
 
 // class Animal{
@@ -123,4 +123,5 @@ console.log(filterCar)
 //  turtle.run()
 //  const cheetah = new Cheetah("Cheetos")
 //  cheetah.run()
- 
+
+
