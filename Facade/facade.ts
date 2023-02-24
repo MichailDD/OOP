@@ -40,54 +40,78 @@
 
 
 interface IAction{
-    run():string
+    run():void
 }
 
 class WaterHeating implements IAction{
-    run(): string {
-        return ` Нагреваю воду`
+    run(): void {
+        console.log( ` Нагреваю воду`)
     }
 }
 class GrindGrain implements IAction{
-    run(): string {
-        return ` Что делают зерна кофе перед смертью?
-                 Они молятся`
+    run(): void {
+        console.log(` Что делают зерна кофе перед смертью?
+        Они молятся`)
     }
 }
 class MakingCoffee implements IAction{
-    run(): string {
-        return `Завариваю кофе`
+    run(): void {
+        console.log(`Завариваю кофе`)
     }
 }
-
-class ClickButton {
-   
-    waterHeating():WaterHeating{
-        return new WaterHeating()
-    }
-    grindGrain():GrindGrain{
-        return new GrindGrain()
-    }
-    makingCoffee():MakingCoffee{
-        return new MakingCoffee()
-    }
-
-   
-}
-
 class CoffeeMachineFacade{
-    button:ClickButton
-    constructor(button:ClickButton){
-        this.button=button
+    private waterHeating:IAction
+    private grindGrain:IAction
+    private makingCoffee:IAction
+    constructor(){
+        this.waterHeating = new WaterHeating()
+        this.grindGrain = new GrindGrain()
+        this.makingCoffee = new MakingCoffee()
+    }
+    public runWaterHeating():void{
+        this.waterHeating.run()
+    }
+    public runGrindGrain():void{
+        this.grindGrain.run()
+    }
+    public runMakingCoffee():void{
+        this.makingCoffee.run()
+    }
+}
+
+class ClickButton{
+    private coffe:CoffeeMachineFacade
+    constructor(){
+        this.coffe= new CoffeeMachineFacade()
     }
     click(){
-      this.button.waterHeating()
-      this.button.grindGrain()
-      this.button.makingCoffee()
-        
-       
-        
+        this.coffe.runWaterHeating()
+        this.coffe.runGrindGrain()
+        this.coffe.runMakingCoffee()
     }
 }
-const button:CoffeeMachineFacade = new CoffeeMachineFacade(new ClickButton())
+ 
+const coffe = new ClickButton().click()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
