@@ -1,24 +1,17 @@
-// interface ITeslaCar{
-//     model:string,
-//     price:number,
-//     maxSpeed:number,
-//     color:string
-//     produce:()=>ITeslaCar
-// }
-//  class Tesla implements ITeslaCar{
-//     constructor(
-//         public model:string,
-//         public price:number,
-//         public maxSpeed:number,
-//         public color:string 
-//     ){}
-//     produce():ITeslaCar{
-//         return new Tesla()
-//     }
-// }
-// const prototypeTesla = new Tesla('S',25000,290,"Black")
-// const tesla1 = prototypeTesla.produce()
-// tesla1.color='Tomato'
-// tesla1.price = 20000
-// console.log(tesla1)
+class TerminatorPrototype {
+    constructor(name, surName, model) {
+        this.name = name,
+            this.surName = surName;
+        this.model = model;
+    }
+    clone() {
+        return new TerminatorPrototype(this.name, this.surName, this.model);
+    }
+}
+const T_1000 = new TerminatorPrototype(`Robert`, `Patrick`, `T-1000`);
+const T_800 = new TerminatorPrototype(`Arnold`, `Schwarzenegger`, `T-800`);
+const terminator_1 = T_1000.clone();
+const terminator_2 = T_800.clone();
+console.log(terminator_1);
+console.log(terminator_2);
 //# sourceMappingURL=prototype-1.js.map

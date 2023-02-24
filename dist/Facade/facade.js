@@ -36,5 +36,5 @@
 //     }
 // }
 // const client =  new Client()
-// client.runShape()
+//  const rectangle = client.runShape()
 //# sourceMappingURL=facade.js.map

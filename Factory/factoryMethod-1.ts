@@ -22,7 +22,7 @@ enum TypeFlakes{
     REGULAR
 }
 class FlakesFactory{
-    create(type){
+    create(type):Flakes{
         if(type===TypeFlakes.CHOCOLATE){
             return new ChocolateFlakes()
         }

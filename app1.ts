@@ -145,27 +145,78 @@
 // getInfo(user)
 // console.log(getInfo(user))
 
+// interface WeaponBehavior{
+//     useWeapon():void
+// }
+
+// class SwordBehavior implements WeaponBehavior{
+//     useWeapon(): void {
+//         console.log(`Удар мечом `)
+//     }
+// }
+
+// class BowAndArrowBehavior implements WeaponBehavior{
+//     useWeapon(): void {
+//         console.log(` Выстрел из лука`)
+//     }
+// }
+// class KnifeBehavior implements WeaponBehavior{
+//     useWeapon(): void {
+//         console.log(`Удар ножом`)
+//     }
+// }
+// class AxeBehavior implements WeaponBehavior{
+//     useWeapon(): void {
+//         console.log(`Удар топором`)
+//     }
+// }
+
+// abstract class Character implements WeaponBehavior{
+//    abstract fight():WeaponBehavior
+//     useWeapon(): WeaponBehavior {
+//         return this.fight()
+//     }
+// }
+
+// class Troll extends Character{
+// fight(): WeaponBehavior {
+//         return new KnifeBehavior()
+// }
+// }
+
+// const troll_1 = new Troll().fight()
+// troll_1.useWeapon()
 
 
-
-interface Fly{
-    fly:()=>void
+interface Employee {
+    doWork():void
 }
-
-interface Qua{
-    qua:()=>void
-}
-class Duck1 implements Fly, Qua{
-    fly(){
-        console.log(`fffff`)
+class Designer implements Employee{
+    doWork(): void {
+        console.log(`Designer`)
     }
-    qua(){
-        console.log(`rreee`)
-    }
-    
 }
-class Duck2 implements Fly{
-    fly():void{
-        console.log(`niu`)
+class Programmer implements Employee{
+    doWork(): void {
+        console.log(`Programmer`)
     }
 }
+
+abstract class Company{
+    abstract getEmpl():Employee[]
+    create():void{
+        let empl = this.getEmpl()
+        empl.forEach(element => {
+            element.doWork()
+        });
+    }
+}
+class Concret extends Company{
+    getEmpl(): [Employee, Employee,Employee] {
+        return [
+            new Programmer,new Designer, new Designer
+        ]
+    }
+}
+const hr1 = new Concret()
+hr1.create()

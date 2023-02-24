@@ -1,57 +1,78 @@
+class Car{
+    private engine:string;
+    private autopilot:boolean
+    private model:string
+    private color:string
 
-
-interface ICoffe{
-    espresso:true,
-    doubleEspresso:boolean
-    milk:boolean,
-    cream:boolean,
-    water:boolean,
-    syrop:boolean
-}
-class CoffeBuilder implements ICoffe{
-   public espresso:true
-   public doubleEspresso: boolean
-   public milk:boolean
-   public cream:boolean
-   public water:boolean
-   public syrop:boolean 
-
-   addDoubleEspresso(espresso:true):CoffeBuilder{
-    this.espresso = espresso
-    return this
+   public getEngine():string{
+    return this.engine
    }
-   addMilk(milk:boolean):CoffeBuilder{
-    this.milk=milk
-    return this
+   public setEngine(en:string){
+    this.engine = en
+   }
+   public getAutopilot():boolean{
+    return this.autopilot
+   }
+   public setAutopilot(au:boolean){
+    this.autopilot = au
+   }
+   public getModel():string{
+    return this.model
+   }
+   public setModel(mo:string){
+    this.model = mo
    }
 
-   addWater(water:boolean):CoffeBuilder{
-    this.water=water
-    return this
+   public getColor():string{
+    return this.color
    }
-   addEspresso(doubleEspresso:boolean):CoffeBuilder{
-    this.doubleEspresso=doubleEspresso
-    return this
+   public setColor(col:string){
+    this.color=col
    }
-   addCream(cream:boolean):CoffeBuilder{
-    this.cream=cream
-    return this
-   }
-   addSyrop(syrop:boolean):CoffeBuilder{
-    this.syrop= syrop
-    return this
-   }
-   buildCoffe(){
-    return new CoffeBuilder()
+   result():string{
+        return `Engine :${this.engine} , Autopilot: ${this.autopilot}, Model: ${this.model},
+                Color :${this.color}`
    }
 
 }
-const coffe_1 = new CoffeBuilder()
-const coffe_2 = new CoffeBuilder()
-const coffe_3 = new CoffeBuilder()
-coffe_1.addEspresso(true).addDoubleEspresso(true).addWater(true)
-coffe_2.addCream(true).addDoubleEspresso(true).addWater(true)
-coffe_3.addMilk(true).addSyrop(true).addDoubleEspresso(true)
-console.log(coffe_1)
-console.log(coffe_2)
-console.log(coffe_3)
+
+abstract class CarBuilder{
+    abstract build():string
+    abstract setEngine(engine:string):void
+    abstract setAutopilot(autopilot:boolean):void
+    abstract setModel(model:string):void
+    abstract setColor(color:string):void
+}
+
+class Engineer extends CarBuilder {
+    private car = new Car()
+    build(): string {
+        return this.car.result()
+    }
+    setEngine(engine: string): void {
+        this.car.setEngine(engine)
+    }
+    setAutopilot(autopilot: boolean): void {
+    this.car.setAutopilot(autopilot)
+    }
+    setModel(model: string): void {
+        this.car.setModel(model)
+    }
+    setColor(color: string): void {
+        this.car.setColor(color)
+    }
+
+}
+class Machine{
+    public create(builder:CarBuilder):string{
+        builder.setEngine(`V8`)
+        builder.setAutopilot(true)
+        builder.setColor(`White`)
+        builder.setModel(`X50`)
+
+        return builder.build()
+    }
+}
+const engineer:Engineer = new Engineer()
+const car:string = new Machine().create(engineer)
+console.log(car)

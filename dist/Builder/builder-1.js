@@ -1,34 +1,66 @@
-class CoffeBuilder {
-    addDoubleEspresso(espresso) {
-        this.espresso = espresso;
-        return this;
+class Car {
+    getEngine() {
+        return this.engine;
     }
-    addMilk(milk) {
-        this.milk = milk;
-        return this;
+    setEngine(en) {
+        this.engine = en;
     }
-    addWater(water) {
-        this.water = water;
-        return this;
+    getAutopilot() {
+        return this.autopilot;
     }
-    addEspresso(doubleEspresso) {
-        this.doubleEspresso = doubleEspresso;
-        return this;
+    setAutopilot(au) {
+        this.autopilot = au;
     }
-    addCream(cream) {
-        this.cream = cream;
-        return this;
+    getModel() {
+        return this.model;
     }
-    addSyrop(syrop) {
-        this.syrop = syrop;
-        return this;
+    setModel(mo) {
+        this.model = mo;
     }
-    buildCoffe() {
-        return new CoffeBuilder();
+    getColor() {
+        return this.color;
+    }
+    setColor(col) {
+        this.color = col;
+    }
+    result() {
+        return `Engine :${this.engine} , Autopilot: ${this.autopilot}, Model: ${this.model},
+                Color :${this.color}`;
     }
 }
-const coffe_1 = new CoffeBuilder();
-coffe_1.addEspresso(true).addDoubleEspresso(true).addWater(true);
-console.log(coffe_1);
-const coffe_2 = new CoffeBuilder();
+class CarBuilder {
+}
+class Engineer extends CarBuilder {
+    constructor() {
+        super(...arguments);
+        this.car = new Car();
+    }
+    build() {
+        return this.car.result();
+    }
+    setEngine(engine) {
+        this.car.setEngine(engine);
+    }
+    setAutopilot(autopilot) {
+        this.car.setAutopilot(autopilot);
+    }
+    setModel(model) {
+        this.car.setModel(model);
+    }
+    setColor(color) {
+        this.car.setColor(color);
+    }
+}
+class Machine {
+    create(builder) {
+        builder.setEngine(`V8`);
+        builder.setAutopilot(true);
+        builder.setColor(`White`);
+        builder.setModel(`X50`);
+        return builder.build();
+    }
+}
+const engineer = new Engineer();
+const car = new Machine().create(engineer);
+console.log(car);
 //# sourceMappingURL=builder-1.js.map

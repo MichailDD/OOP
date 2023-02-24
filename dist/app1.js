@@ -9,17 +9,31 @@
 // //     constructor(sort:string,color:string){
 // //         super(sort)
 // //         this.color=color
-class Duck1 {
-    fly() {
-        console.log(`fffff`);
-    }
-    qua() {
-        console.log(`rreee`);
+class Designer {
+    doWork() {
+        console.log(`Designer`);
     }
 }
-class Duck2 {
-    fly() {
-        console.log(`niu`);
+class Programmer {
+    doWork() {
+        console.log(`Programmer`);
     }
 }
+class Company {
+    create() {
+        let empl = this.getEmpl();
+        empl.forEach(element => {
+            element.doWork();
+        });
+    }
+}
+class Concret extends Company {
+    getEmpl() {
+        return [
+            new Programmer, new Designer, new Designer
+        ];
+    }
+}
+const hr1 = new Concret();
+hr1.create();
 //# sourceMappingURL=app1.js.map
