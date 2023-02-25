@@ -39,44 +39,44 @@
 // const rectangle = client.runShape()
 class WaterHeating {
     run() {
-        return ` Нагреваю воду`;
+        console.log(` Нагреваю воду`);
     }
 }
 class GrindGrain {
     run() {
-        return ` Что делают зерна кофе перед смертью?
-                 Они молятся`;
+        console.log(` Что делают зерна кофе перед смертью?
+        Они молятся`);
     }
 }
 class MakingCoffee {
     run() {
-        return `Завариваю кофе`;
-    }
-}
-class ClickButton {
-    waterHeating() {
-        return new WaterHeating();
-    }
-    grindGrain() {
-        return new GrindGrain();
-    }
-    makingCoffee() {
-        return new MakingCoffee();
+        console.log(`Завариваю кофе`);
     }
 }
 class CoffeeMachineFacade {
-    constructor(button) {
-        this.button = button;
+    constructor() {
+        this.waterHeating = new WaterHeating();
+        this.grindGrain = new GrindGrain();
+        this.makingCoffee = new MakingCoffee();
     }
-    click() {
-        const ff = this.button.waterHeating();
-        let qq = this.button.grindGrain();
-        let rr = this.button.makingCoffee();
-        ff.run();
-        qq.run();
-        rr.run();
+    runWaterHeating() {
+        this.waterHeating.run();
+    }
+    runGrindGrain() {
+        this.grindGrain.run();
+    }
+    runMakingCoffee() {
+        this.makingCoffee.run();
     }
 }
-const button = new CoffeeMachineFacade(new ClickButton());
-console.log(button.click());
-//# sourceMappingURL=facade.js.map
+class ClickButton {
+    constructor() {
+        this.coffe = new CoffeeMachineFacade();
+    }
+    click() {
+        this.coffe.runWaterHeating();
+        this.coffe.runGrindGrain();
+        this.coffe.runMakingCoffee();
+    }
+}
+const coffe = new ClickButton().click();
