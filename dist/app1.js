@@ -182,4 +182,7 @@
 // }
 // const hr1 = new Concret()
 // hr1.create()
+const typeGeneric = function (arg) {
+    return this.arg;
+};
 //# sourceMappingURL=app1.js.map
