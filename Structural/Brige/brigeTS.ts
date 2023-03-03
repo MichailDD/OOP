@@ -28,9 +28,9 @@ class ViberMessenger implements IMessenger{
     }
     
 }
-class MessageSender{
+class MessageSender {
     constructor(private provaider:IMessenger){}
-    send(){
+    send():void{
         this.provaider.connect(`Connected.....`)
         this.provaider.sendMessege(`messege`)
         this.provaider.disconnecrt()
