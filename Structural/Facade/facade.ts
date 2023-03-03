@@ -78,13 +78,16 @@ class CoffeeMachineFacade{
         this.makingCoffee.run()
     }
 }
-
-class ClickButton{
-    private coffe:CoffeeMachineFacade
+interface IClickButton{
+    coffe:CoffeeMachineFacade
+    click():void
+}
+class ClickButton implements IClickButton{
+    public coffe:CoffeeMachineFacade
     constructor(){
         this.coffe= new CoffeeMachineFacade()
     }
-    click(){
+    click():void{
         this.coffe.runWaterHeating()
         this.coffe.runGrindGrain()
         this.coffe.runMakingCoffee()
