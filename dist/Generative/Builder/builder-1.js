@@ -30,7 +30,7 @@ class Car {
 }
 class CarBuilder extends Car {
 }
-class Engineer extends Car {
+class Engineer extends CarBuilder {
     constructor() {
         super(...arguments);
         this.car = new Car();

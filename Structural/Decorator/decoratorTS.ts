@@ -19,7 +19,7 @@ class Espresso implements ICoffee{
 }
 
 class Latte implements ICoffee{
-    latte:ICoffee
+   public latte:ICoffee
     constructor(latte:ICoffee){
         this.latte=latte
     }
@@ -31,7 +31,7 @@ class Latte implements ICoffee{
     }
 }
 class Cappuccino implements ICoffee{
-    cappuccino:ICoffee
+    public cappuccino:ICoffee
     constructor(cappuccino:ICoffee){
         this.cappuccino=cappuccino
     }

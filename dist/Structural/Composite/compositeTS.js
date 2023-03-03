@@ -16,8 +16,12 @@ class GiftShop extends Delivery {
     }
 }
 class Pack extends Delivery {
+    constructor(constPack) {
+        super();
+        this.constPack = constPack;
+    }
     getPrice() {
-        return this.items.reduce((a, i) => a += i.getPrice(), 0);
+        return this.items.reduce((a, i) => a += i.getPrice(), 0 + this.constPack);
     }
 }
 class Product extends Delivery {
@@ -31,7 +35,7 @@ class Product extends Delivery {
 }
 const shop = new GiftShop(1000);
 shop.addItem(new Product(2001));
-const pack = new Pack();
+const pack = new Pack(500);
 shop.addItem(pack);
 console.log(shop.getPrice());
 //# sourceMappingURL=compositeTS.js.map
