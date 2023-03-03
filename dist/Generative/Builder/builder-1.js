@@ -28,9 +28,9 @@ class Car {
                 Color :${this.color}`;
     }
 }
-class CarBuilder {
+class CarBuilder extends Car {
 }
-class Engineer extends CarBuilder {
+class Engineer extends Car {
     constructor() {
         super(...arguments);
         this.car = new Car();

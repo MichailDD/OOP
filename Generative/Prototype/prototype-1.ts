@@ -2,15 +2,15 @@ interface Terminator{
     clone():Terminator
 }
 class TerminatorPrototype implements Terminator{
-    name:string 
-    surName:string
-    model:string
+   public name:string 
+   public surName:string
+   public model:string
     constructor(name:string,surName:string,model:string){
         this.name=name,
         this.surName=surName
         this.model=model
     }
-    clone(): TerminatorPrototype {
+   public clone(): TerminatorPrototype {
         return new TerminatorPrototype(this.name,this.surName,this.model)
     }
 }
