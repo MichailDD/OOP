@@ -1,41 +1,42 @@
-class Shawarma {
-    constructor(){
-        this.size= true;
-        this.cheeze =false;
-        this.mushrooms =false;
-        this.potatoes = true;
-        this.cucumbers =false;
-        this.chickenMeat = true;
-        this.sause = true;
-        this.spicySause = false;
-    }
+
+
+class Car {
+
+	constructor() {
+		this.autoPilot = false;
+		this.parktronic = false;
+		this.signaling = false;
+	}
 }
 
-class ShawarmaBuilder{
-    constructor(){
-        this.shawarma = new Shawarma()
-    }
-    addCheeze(cheeze){
-        this.shawarma.cheeze = cheeze;
-        return this
-    }
-    addMushrooms(mushrooms){
-        this.shawarma.mushrooms = mushrooms;
-        return this
-    }
-    addCucumbers(cucumbers){
-        this.shawarma.cucumbers = cucumbers;
-        return this
-    }
-    addSpicySause(spicySause){
-        this.shawarma.spicySause = spicySause;
-        return this
-    }
-    build(){
-        return this.shawarma;
-    }
+class CarBuilder {
+	constructor() {
+		this.car = new Car();
+	}
+
+	addAutoPilot(autoPilot) {
+		this.car.autoPilot = autoPilot;
+		return this;
+	}
+
+	addParktronic(parktronic) {
+		this.car.parktronic = parktronic;
+		return this;
+	}
+
+	addSignaling(signaling) {
+		this.car.signaling = signaling;
+		return this;
+	}
+  
+	updateEngine(engine) {
+		this.car.engine = engine;
+		return this;
+	}
+
+	build() {
+		return this.car;
+	}
 }
-const myShawarma = new ShawarmaBuilder().addCheeze(true).addCucumbers(true).addMushrooms(true).addSpicySause(true)
-console.log(myShawarma)
 
-
+const bmw = new CarBuilder().addAutoPilot(true).addSignaling(true)

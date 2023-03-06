@@ -1,17 +1,21 @@
+///Дерево
 class Delivery {
     constructor() {
         this.items = [];
     }
+    //добавление елементов
     addItem(item) {
         this.items.push(item);
     }
 }
 class GiftShop extends Delivery {
+    ///Стоимость доставки
     constructor(costDelivery) {
         super();
         this.costDelivery = costDelivery;
     }
     getPrice() {
+        //Проходим по каждому элементу и прибавляем сумму
         return this.items.reduce((a, i) => a += i.getPrice(), 0 + this.costDelivery);
     }
 }

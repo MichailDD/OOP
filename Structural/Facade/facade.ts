@@ -60,9 +60,9 @@ class MakingCoffee implements IAction{
     }
 }
 class CoffeeMachineFacade{
-    private waterHeating:IAction
-    private grindGrain:IAction
-    private makingCoffee:IAction
+    private waterHeating:WaterHeating
+    private grindGrain:GrindGrain
+    private makingCoffee:MakingCoffee
     constructor(){
         this.waterHeating = new WaterHeating()
         this.grindGrain = new GrindGrain()

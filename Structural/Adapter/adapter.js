@@ -1,26 +1,23 @@
-function ErrorAPI(){
-    return {
-        info:[
-            {
-                user_name:'Donald',
-                user_subName:'Duck',
-                email:'disney@donald.com'
-            },
-            {
-                user_name:'Mikki',
-                user_subName:'Mouse',
-                email:'disney@mikki.com'  
-            }         
-        ]
-    }
+class Engine2 {
+	simpleInterface() { console.log('Engine 2.0') }
 }
 
-function Adapter(response){
-    return response.info.map((entry)=>({
-        userName:info.user_name,
-        userSubname:info.user_subName,
-        userEmail:info.email
-    }))
+class EngineV8 {
+	complecatedInterface() { console.log('Engine V8!') }
 }
-const response = ErrorAPI()
-const cameCaseResponse = Adapter(response)
+
+class EngineV8Adapter {
+	constructor(engine) {
+		this.engine = engine;
+	}
+     
+	simpleInterface() {
+		this.engine.complecatedInterface();
+	}
+}
+
+class Auto {
+	startEngine(engine) {
+		engine.simpleInterface()
+	}
+}

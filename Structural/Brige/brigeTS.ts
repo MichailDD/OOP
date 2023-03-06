@@ -28,6 +28,7 @@ class ViberMessenger implements IMessenger{
     }
     
 }
+////Наш мессенджер 
 class MessageSender {
     constructor(private provaider:IMessenger){}
     send():void{

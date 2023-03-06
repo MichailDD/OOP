@@ -20,6 +20,7 @@ class ViberMessenger {
         console.log(`Disconnect server Viber`);
     }
 }
+////Наш мессенджер 
 class MessageSender {
     constructor(provaider) {
         this.provaider = provaider;

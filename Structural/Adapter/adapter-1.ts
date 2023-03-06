@@ -19,6 +19,6 @@ class TypeCToUSBAdapter implements IType_C{
     }
 }
 
-const adapter:TypeCToUSBAdapter= new TypeCToUSBAdapter()
+const adapter:IType_C= new TypeCToUSBAdapter()
 adapter.controlSignalTypeC()
 console.log(adapter.controlSignalTypeC())

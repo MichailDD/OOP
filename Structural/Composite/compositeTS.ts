@@ -1,6 +1,7 @@
-
+///Дерево
 abstract class Delivery{
     items:Delivery[]= []
+    //добавление елементов
     addItem(item:Delivery){
         this.items.push(item)
     }
@@ -9,10 +10,12 @@ abstract class Delivery{
 
 
 class GiftShop extends Delivery {
+    ///Стоимость доставки
     constructor(public costDelivery:number){
         super()
     }
     getPrice():number {
+        //Проходим по каждому элементу и прибавляем сумму
          return this.items.reduce((a:number,i:Delivery)=> a += i.getPrice(),0 + this.costDelivery)
     }
 }
