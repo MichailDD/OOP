@@ -27,7 +27,7 @@ class DraftDocumentItem extends DocumentState {
         this.name = `DraftDocumentItem`;
     }
     publish() {
-        console.log(`На сайт отправлен тексе ${this.item.text}`);
+        console.log(`На сайт отправлен текст ${this.item.text}`);
         this.item.setState(new PublishDocumentItem());
     }
     delete() {
@@ -55,5 +55,4 @@ console.log(item.getState());
 item.deleteDoc();
 console.log(item.getState());
 item.publishDoc();
-console.log(item.publishDoc());
 //# sourceMappingURL=state.js.map

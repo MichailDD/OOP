@@ -4,24 +4,27 @@ private state:DocumentState
 constructor(){
     this.setState(new DraftDocumentItem())
 }
-getState(){
+getState():DocumentState{
   return  this.state
 }
 setState(state:DocumentState){
     this.state=state
     this.state.setContext(this)
 }
-publishDoc(){
+publishDoc():void{
     this.state.publish()
 }
-deleteDoc(){
+deleteDoc():void{
     this.state.delete()
 }
 }
+
+
+
 abstract class DocumentState{
     public name:string
     public item:DocumentItem
-    setContext(item:DocumentItem){
+    setContext(item:DocumentItem):void{
         this.item=item
     }
     abstract publish():void
@@ -35,7 +38,7 @@ class DraftDocumentItem extends DocumentState{
         this.name=`DraftDocumentItem`
     }
     publish(): void {
-        console.log(`На сайт отправлен тексе ${this.item.text}`)
+        console.log(`На сайт отправлен текст ${this.item.text}`)
         this.item.setState(new PublishDocumentItem()  )
     }
     delete(): void {
@@ -64,5 +67,5 @@ console.log(item.getState())
 item.deleteDoc()
 console.log(item.getState())
 item.publishDoc()
-console.log(item.publishDoc())
+
 

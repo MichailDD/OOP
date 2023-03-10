@@ -1,11 +1,57 @@
-// Необходимо сделать корзину (Cart) на сайте,
-// которая имееет список продуктов (Product), добавленных в корзину
-// и переметры доставки (Delivery). Для Cart реализовать методы:
-// - Добавить продукт в корзину
-// - Удалить продукт из корзины по ID
-// - Посчитать стоимость товаров в корзине
-// - Задать доставку
-// - Checkout - вернуть что всё ок, если есть продукты и параметры доставки
-// Product: id, название и цена
-// Delivery: может быть как до дома (дата и адрес) или до пункта выдачи (дата = Сегодня и Id магазина)
+// interface FlyBehavior{
+//     fly():void
+// }
+// interface QuakBehavior{
+//     quack():void
+// }
+// class FlyWidthRocket implements FlyBehavior{
+//     fly(): void {
+//         console.log(`FlyWidthRocket`)
+//         }
+class WeatherData {
+    constructor() {
+        this.observers = [];
+    }
+    weatherData() {
+        this.observers = [];
+    }
+    registerObserver(o) {
+        if (this.observers.includes(o)) {
+            return;
+        }
+        this.observers.push(o);
+    }
+    removeObserver(o) {
+        const observerIndex = this.observers.indexOf(o);
+        if (observerIndex == -1) {
+            return;
+        }
+        this.observers.splice(observerIndex, 1);
+    }
+    notifyObservers() {
+        throw new Error("Method not implemented.");
+    }
+    setMeasurements(temperature, humidity, pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+    }
+}
+class CurrentConditionsDisplay {
+    currentConditionsDisplay(weatherData) {
+        this.weatherData = weatherData;
+        weatherData.registerObserver(this);
+    }
+    update(temperature, humidity, pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.display();
+    }
+    display() {
+        console.log(`
+        Temperature: ${this.temperature},
+        Humidity: ${this.humidity}
+        `);
+    }
+}
 //# sourceMappingURL=app1.js.map

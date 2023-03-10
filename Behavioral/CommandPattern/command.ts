@@ -1,7 +1,6 @@
 class User {
     constructor(public userID:number){
-
-    }
+}
 }
 abstract class Command{
     public commandId:number
@@ -39,7 +38,7 @@ class AddUserCommand extends Command{
         this.history.push(this)
 
     }
-    undo(){
+    undo():void{
         this.receiver.deleteUser(this.user.userID)
         this.history.remove(this)
     }
@@ -52,7 +51,7 @@ class Controller{
     addReceiver(receiver:UserService){
         this.receiver=receiver
     }
-    run(){
+    run():void{
         const  addUserCommand = new AddUserCommand(
             new User(1),
             this.receiver,

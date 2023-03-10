@@ -19,7 +19,7 @@ class Log{
     }
 }
 class EventHendler extends Mediated{
-    myEvent(){
+    myEvent():void{
         this.mediator.notify(`EventHendler`,`MyEvent`)
     }
 }
@@ -30,7 +30,8 @@ class Mediator implements IMediator{
         public log:Log,
         public hendler:EventHendler
     ){}
-    notify(event: string): void {
+        notify(event: string): void 
+    {
         switch(event){
             case `MyEvent`:
             this.notifications.send()
