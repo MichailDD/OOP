@@ -66,6 +66,7 @@ taskList.addTask(new Task(2))
 const iterator = taskList.getIterator()
 
 console.log(taskList)
+
 console.log(iterator.next())
 console.log(iterator.next())
 console.log(iterator.next())

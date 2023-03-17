@@ -24,7 +24,6 @@ class DocumentState {
 class DraftDocumentItem extends DocumentState {
     constructor() {
         super();
-        this.name = `DraftDocumentItem`;
     }
     publish() {
         console.log(`На сайт отправлен текст ${this.item.text}`);
@@ -37,7 +36,6 @@ class DraftDocumentItem extends DocumentState {
 class PublishDocumentItem extends DocumentState {
     constructor() {
         super();
-        this.name = `PublishDocumentItem`;
     }
     publish() {
         console.log(`Нельзя опубликовать опубликованный документ`);
@@ -54,5 +52,6 @@ item.publishDoc();
 console.log(item.getState());
 item.deleteDoc();
 console.log(item.getState());
+item.publishDoc();
 item.publishDoc();
 //# sourceMappingURL=state.js.map

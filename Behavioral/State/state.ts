@@ -22,7 +22,7 @@ deleteDoc():void{
 
 
 abstract class DocumentState{
-    public name:string
+  
     public item:DocumentItem
     setContext(item:DocumentItem):void{
         this.item=item
@@ -35,7 +35,7 @@ class DraftDocumentItem extends DocumentState{
   
     constructor(){
         super()
-        this.name=`DraftDocumentItem`
+       
     }
     publish(): void {
         console.log(`На сайт отправлен текст ${this.item.text}`)
@@ -49,7 +49,7 @@ class PublishDocumentItem extends DocumentState{
   
     constructor(){
         super()
-        this.name=`PublishDocumentItem`
+        
     }
     publish(): void {
         console.log(`Нельзя опубликовать опубликованный документ`)
@@ -66,6 +66,7 @@ item.publishDoc()
 console.log(item.getState())
 item.deleteDoc()
 console.log(item.getState())
+item.publishDoc()
 item.publishDoc()
 
 
